@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: main
+          ref: master
 
       - name: Update version in package.json
         id: version
@@ -59,6 +59,6 @@ jobs:
           commit-message: "Release ${{ steps.version.outputs.version }}"
           committer: "Alchemer Mobile Team <sdks@apptentive.com>"
           branch: "releases/${{ steps.version.outputs.version }}"
-          base: main
+          base: master
           title: "Release ${{ steps.version.outputs.version }}"
           body-path: .scripts/changes.md
