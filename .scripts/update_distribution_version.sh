@@ -13,29 +13,4 @@ if [ $# -ne 1 ]; then
     exit 1
 fi
 
-new_version="$1"
-podspec_file="apptentive-fake-plugin.podspec"
-
-# Check if the podspec file exists
-if [ ! -f "$podspec_file" ]; then
-    echo "Error: $podspec_file does not exist."
-    exit 1
-fi
-
-# Use sed to update the version in the podspec file
-sed -i "s/s.version\( *\)= *\"[^\"]*\"/s.version\1= \"$new_version\"/" "$podspec_file"
-
-echo "Updated version to $new_version in $podspec_file."
-
-javascript_file="www/Apptentive.js"
-
-# Check if the javascript file exists
-if [ ! -f "$javascript_file" ]; then
-    echo "Error: $javascript_file does not exist."
-    exit 1
-fi
-
-# Use sed to update the version in the javascript file
-sed -i "s/distributionVersion: \"[^\"]*\"/distributionVersion: \"$new_version\"/" "$javascript_file"
-
-echo "Updated version to $new_version in $javascript_file."
+echo "No files need version updates ($new_version)."
