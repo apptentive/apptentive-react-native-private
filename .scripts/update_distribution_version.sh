@@ -23,7 +23,7 @@ if [ ! -f "$package_json" ]; then
 fi
 
 version_script=".version=\"$new_version\""
-jq $version_script "$package_json" > "$package_json"
+yq -iP $version_script "$package_json" -o json
 
 echo "Updated version to $new_version in $package_json."
 
