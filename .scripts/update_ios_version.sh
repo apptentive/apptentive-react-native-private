@@ -20,6 +20,6 @@ if [ ! -f "$podspec_file" ]; then
 fi
 
 # Use sed to update the version in the podspec file
-sed -i "s/s.dependency '$dependency_name', '[^']*'/s.dependency '$dependency_name', '$new_version'/" "$podspec_file"
+sed -i "s/s.dependency '$dependency_name', '[^']*'/s.dependency '$dependency_name', '~> $new_version'/" "$podspec_file"
 
 echo "Updated $dependency_name to version $new_version in $podspec_file."
